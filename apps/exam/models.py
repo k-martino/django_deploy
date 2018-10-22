@@ -84,7 +84,7 @@ class Category(models.Model):
 
 class Job(models.Model):
     title = models.CharField(max_length=255)
-    posted_by = models.ForeignKey(User, related_name="posted_jobs")
+    posted_by = models.ForeignKey(User, related_name="posted_jobs", on_delete=models.CASCADE)
     accepted_by = models.ForeignKey(User, related_name="accepted_jobs", null=True)
     category = models.ForeignKey(Category, related_name="jobs", null=True)
     desc = models.CharField(max_length=255)
