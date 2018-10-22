@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Handy Helper Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Shadows+Into+Light" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/exam/css/bootstrap4-daydream.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h1 class="navbar-text text-handwriting">Hello, {{ request.session.first_name }}!</h1>
+            <ul class="nav">
+                <li>
+                    <a href="{% url 'new_job' %}" class="nav-item btn btn-outline-success">New job!</a>
+                </li>
+                <li>
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="container-fluid mt-3">
+    <div class="container-fluid">
+        <h3>Available jobs:</h3>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+            <tr>
+                <th>Job</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for job in available_jobs %}
+                <tr>
+                    <th scope="row">{{ job.title }}</th>
+                    <td>{{ job.location }}</td>
+                    <td>
+                        <span class="btn-group">
+                            <a href="jobs/{{ job.id }}" class="btn btn-outline-primary">View</a>
+                            {% if job.posted_by_id == request.session.user_id %}
+                                <a href="destroy/{{ job.id }}" class="btn btn-outline-danger">Remove</a>
+                                <a href="jobs/edit/{{ job.id }}" class="btn btn-outline-secondary">Edit</a>
+                            {% endif %}
+                            <a href="accept/{{ job.id }}" class="btn btn-outline-info">Accept</a>
+                        </span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid">
+        <h3>{{ request.session.first_name }}'s jobs:</h3>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+            <tr>
+                <th>Job</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for job in accepted_jobs %}
+                <tr>
+                    <th scope="row">{{ job.title }}</th>
+                    <td>
+                        <span class="btn-group">
+                            <a href="jobs/{{ job.id }}" class="btn btn-outline-primary">View</a>
+                            <a href="destroy/{{ job.id }}" class="btn btn-outline-success">Done</a>
+                            <a href="give_up/{{ job.id }}" class="btn btn-outline-warning">Give up</a>
+                        </span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>

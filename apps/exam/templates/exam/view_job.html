@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Job</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Shadows+Into+Light" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/exam/css/bootstrap4-daydream.css' %}">
+
+</head>
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h1 class="navbar-text text-handwriting">Hello, {{ request.session.first_name }}! These are the job
+                details!</h1>
+            <div class="nav">
+                <a class="nav-item nav-link" href="{% url 'index' %}">Dashboard </a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid">
+
+    <h3>{{ job.title }}</h3>
+    <div class="border">
+        <ul>
+            <li>
+                {{ job.desc }}
+            </li>
+            <li>
+                Location: {{ job.location }}
+            </li>
+            <li>
+                Posted by: {{ job.posted_by.first_name }}
+            </li>
+            <li>
+                Posted on: {{ job.created_at }}
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+</body>
+</html>
