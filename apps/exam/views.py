@@ -30,8 +30,10 @@ def new_job(request):
 
 def view_job(request, job_id):
     if 'logged_in' in request.session and 'user_id' in request.session:
+        job = Job.objects.get(id=job_id)
         context = {
-            'job': Job.objects.get(id=job_id),
+            'job': job,
+            'category': Category.objects.get(id=job.category_id)
         }
         return render(request, 'exam/view_job.html', context)
     else:
@@ -100,16 +102,16 @@ def process_job(request):
             desc = request.POST["description"]
             location = request.POST["location"]
             posted_by = User.objects.get(id=request.session["user_id"])
-            # if request.POST["category"] == "Other":
-            #     category = Category.objects.create(name=request.POST("new_category"))
-            # else:
-            #     category = Category.objects.filter(name=request.POST["category"])[0]
-            job = Job.objects.create(
+            if request.POST["category"] == "Other":
+                category = Category.objects.create(name=request.POST("new_category"))
+            else:
+                category = Category.objects.filter(name=request.POST["category"])[0]
+            Job.objects.create(
                 title=title,
                 desc=desc,
                 location=location,
                 posted_by=posted_by,
-                # category_id=category.id,
+                category_id=category.id,
             )
             return redirect(index)
 
@@ -126,10 +128,11 @@ def process_edit(request):
             job.title = request.POST["title"]
             job.desc = request.POST["description"]
             job.location = request.POST["location"]
-            # if request.POST["category"] == "Other":
-            #     category = Category.objects.create(name=request.POST("new_category"))
-            # else:
-            #     category = Category.objects.filter(name=request.POST["category"])[0]
+            if request.POST["category"] == "Other":
+                category = Category.objects.create(name=request.POST("new_category"))
+            else:
+                category = Category.objects.filter(name=request.POST["category"])[0]
+            job.category_id = category.id
             job.save()
             return redirect(index)
 

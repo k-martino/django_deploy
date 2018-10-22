@@ -50,15 +50,42 @@
                 <div class="form-group row">
                     <label for="description" class="col-3 col-form-label">Description</label>
                     <div class="col-9">
-                        <input class="form-control" name="description" value="{{job.desc}}" type="text">
+                        <input class="form-control" name="description" value="{{ job.desc }}" type="text">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="location" class="col-3 col-form-label">Location</label>
                     <div class="col-9">
-                        <input class="form-control" name="location" value="{{job.location}}" type="text">
+                        <input class="form-control" name="location" value="{{ job.location }}" type="text">
                     </div>
                 </div>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-2 col-form-label pt-0">Category</legend>
+                        <div class="col-10">
+                            {% for category in categories %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="category"
+                                           id="{{ category.name }}" value="{{ category.name }}">
+                                    <label class="form-check-label"
+                                           for="{{ category.name }}">{{ category.name }}</label>
+                                </div>
+                            {% endfor %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="category"
+                                       id="Other" value="Other">
+                                <label class="form-check-label"
+                                       for="Other">Other</label>
+                            </div>
+                            <div class="form-group row pt-3">
+                                <label for="new_category" class="col-2 col-form-label">Other:</label>
+                                <div class="col-9">
+                                    <input class="form-control" name="new_category" placeholder="Category" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
                 <div class="form-group row btn-group col-auto offset-9 float-right">
                     <a class="btn btn-outline-danger shadow" href="{% url 'index' %}">Cancel</a>
                     <input class="btn btn-outline-primary shadow" type="submit" value="Submit">

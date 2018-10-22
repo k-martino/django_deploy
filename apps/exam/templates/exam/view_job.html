@@ -44,9 +44,16 @@
             <li>
                 Posted on: {{ job.created_at }}
             </li>
+            <li>
+                Category: {{ category.name }}
+            </li>
         </ul>
     </div>
-
+    {% if job.accepted_by_id == request.session.user_id %}
+    <a href="give_up/{{ job.id }}">Give Up</a>
+    {% else %}
+    <a href="accept/{{ job.id }}">Add to my jobs</a>
+    {% endif %}
 </div>
 
 
