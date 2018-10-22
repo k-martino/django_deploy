@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a1838c9-ed29-4228-9468-7235930626bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/exam/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/exam/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/exam/templates/exam/new_job.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/exam/templates/exam/new_job.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,8 +142,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/exam/templates/exam/new_job.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+            <state relative-caret-position="302">
+              <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/apps/exam/templates/exam/edit_job.html" />
         <option value="$PROJECT_DIR$/apps/exam/templates/exam/dashboard.html" />
         <option value="$PROJECT_DIR$/apps/exam/views.py" />
-        <option value="$PROJECT_DIR$/apps/exam/templates/exam/new_job.html" />
         <option value="$PROJECT_DIR$/apps/exam/models.py" />
+        <option value="$PROJECT_DIR$/apps/exam/templates/exam/new_job.html" />
       </list>
     </option>
   </component>
@@ -328,8 +328,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="301" y="23" width="1379" height="936" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30262172" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30262172" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" weight="0.32938388" />
@@ -345,7 +346,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32251522" />
-      <window_info anchor="bottom" x="-1102" y="-691" width="1920" height="325" id="Terminal" order="12" visible="true" weight="0.31990522" />
+      <window_info active="true" anchor="bottom" x="-1102" y="-691" width="1920" height="325" id="Terminal" order="12" visible="true" weight="0.31990522" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32938388" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -477,8 +478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/exam/templates/exam/new_job.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+        <state relative-caret-position="302">
+          <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
         </state>
       </provider>
     </entry>
